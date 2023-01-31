@@ -1,19 +1,6 @@
-.bp-navbar {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  max-width: 100%;
-
-  @media(min-width: 991px){
-    padding: .75rem 0;
-  }
-}
-
-.bp-navbar-brand {
-  height: 72px;
-  padding: 0 1.5rem;
-}
-svg, rect, circle {
+svg,
+rect,
+circle {
   transition: all .4s;
   transform-origin: center;
 }
@@ -21,34 +8,29 @@ svg, rect, circle {
 .bp-navbar-brand:hover rect {
   transform: scale(1.155);
 }
-.bp-navbar-brand:hover circle:nth-child(2){
+
+.bp-navbar-brand:hover circle:nth-child(2) {
   cx: 15.5;
   cy: 5.5;
   r: 5.5;
 }
-.bp-navbar-brand:hover circle:nth-child(3){
+
+.bp-navbar-brand:hover circle:nth-child(3) {
   cx: 169.5;
   cy: 16.5;
   r: 2.5;
 }
-.bp-navbar-brand:hover circle:nth-child(4){
+
+.bp-navbar-brand:hover circle:nth-child(4) {
   cx: 166.5;
   cy: 62.5;
   r: 5.5;
 }
-.bp-navbar-brand:hover circle:nth-child(5){
+
+.bp-navbar-brand:hover circle:nth-child(5) {
   cx: 2.5;
   cy: 18.5;
   r: 2.5;
-}
-
-.bp-navbar-nav {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-left: auto;
 }
 
 .bp-navbar-nav li {
@@ -67,7 +49,8 @@ svg, rect, circle {
   overflow: hidden;
   width: 200px;
 
-  svg, span {
+  svg,
+  span {
     transition: all .4s;
     transform-origin: left;
   }
@@ -75,6 +58,7 @@ svg, rect, circle {
   svg {
     transform: translateY(100%);
   }
+
   span {
     display: inline-block;
     transform: translateX(0);
@@ -82,29 +66,193 @@ svg, rect, circle {
 
   &:hover {
     font-weight: 700;
+
     svg {
       transform: translateY(0);
     }
+
     span {
       transform: translateX(2rem);
     }
   }
 }
 
-
 .theme-flat {
   .bp-navbar {
-    background: #fff;
     margin-bottom: 0;
-    border-color: var(--primary);
+    &.active {
+      background: #fff;
+    }
   }
-  circle, path {
+  span.main-nav-toggle {
+    &:after, &:before {
+      border-color: var(--primary) !important;
+    }
+    i {
+      background-color: var(--primary) !important;
+    }
+  }
+
+  circle,
+  path {
     fill: var(--primary);
   }
+
   .bp-navbar-nav li a {
     color: var(--primary);
   }
+
   .bp-navbar-nav li svg path {
     fill: var(--primary);
+  }
+}
+
+.bp-navbar {
+  position: absolute;
+  z-index: 10000;
+  &.active {
+    background: var(--bg-gradient);
+  }
+
+  @media(min-width: 991px) {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    padding: 1em 0;
+    background: none !important;
+  }
+}
+
+.bp-navbar-brand {
+  height: 72px;
+  margin-left: -1.5em;
+  display: flex;
+  justify-content: center;
+  @media(min-width: 991px){
+    padding: 0 1.5rem;
+  }
+}
+
+.bp-navbar-toggler {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  @media(min-width: 991px){
+    display: none;
+  }
+}
+
+.bp-navbar-nav {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  // height: 0;
+  height: calc(100vh - 80px);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: all .5s;
+  pointer-events: none;
+  opacity: 0;
+
+  &.active {
+    height: calc(100vh - 80px);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @media(min-width: 991px){
+    flex-flow: row nowrap;
+    justify-content: initial;
+    margin-left: auto;
+    height: auto;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.bp-navbar-nav li a {
+  svg {
+    display: none;
+  }
+
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hamburger {
+  height: 18px;
+  
+  span.main-nav-toggle {
+    display: block;
+    width: 28px;
+    height: 16px;
+    
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 0;
+      border-bottom: 4px solid #fff;
+      width: 100%;
+      left: 0;
+      right: 0;
+      transition: all ease-out 0.3s;
+    }
+    
+    &:after {
+      top: 100%;
+    }
+    
+    i {
+      display: block;
+      text-indent: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      height: 4px;
+      background-color: #fff;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transition: all ease-out 0.1s;
+    }
+    
+    &.active {
+      &:after {
+        transform: rotate(-45deg);
+        transform-origin: center;
+        top: 50%;
+      }
+      
+      &:before {
+        transform: rotate(45deg);
+        transform-origin: center;
+        top: 50%
+      }
+      
+      i {
+        opacity: 0;
+      }
+    }
   }
 }

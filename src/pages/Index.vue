@@ -41,7 +41,7 @@
           Contract:
         </div>
         <span style="font-weight: 300; overflow: hidden;">
-          <a href="#" class="text-white">
+          <a href="https://snowtrace.io/token/0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf" class="text-white">
             0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf
           </a>
         </span>
