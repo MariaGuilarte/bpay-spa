@@ -1,0 +1,62 @@
+#vectorContainer {
+  animation: fadeIn 1s forwards;
+  animation-delay: 2.15s;
+  opacity: 0;
+  @media (min-width: 992px) {
+    padding-left: 55px;
+    h1 {
+      white-space: nowrap;
+    }
+  }
+}
+
+#indexAnimatedGraph {
+  overflow: hidden;
+  img { width: 200px; display: block; margin: 0 auto; }
+  // border: 2px solid yellow;
+  @media (min-width: 992px) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 262px);
+    padding-left: 50px;
+
+    animation: slideInLeft2 1s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+
+    img {
+      margin-top: 82px;
+      width: 414px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  70% {
+    transform: translateX(37%);
+  }
+  100% {
+    transform: translateX(35%);
+  }
+}
+
+@keyframes slideInLeft2 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(300px);
+  }
+}

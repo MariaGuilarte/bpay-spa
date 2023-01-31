@@ -1,0 +1,120 @@
+.main-content.v-enter-active,
+.main-content.v-leave-active {
+  transition: opacity 1s ease-out;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  @media(min-width: 991px){
+    top: 100px;
+  }
+}
+
+.v-enter-active {
+  .slideInRight {
+    animation: slideInRight 1s ease-out;
+  }
+  .slideInLeft {
+    animation: slideInLeft 1s ease-out;
+  }
+  .slideInTop {
+    animation: slideInTop 1s ease-out;
+  }
+  .slideInBottom {
+    animation: slideInBottom 1s ease-out;
+  }
+
+  .slideInBottomRight {
+    animation: slideInBottomRight .5s ease-out;
+  }
+  .fadeIn {
+    animation: fadeIn 1s ease-out;
+  }
+  #airdrop {
+    animation: fadeIn 1s ease-out;
+  }
+}
+
+.v-leave-active {
+  z-index: 3000;
+
+  .slideOutTop {
+    animation: slideOutTop .5s ease-out forwards;
+  }
+  .slideOutRight {
+    animation: slideOutRight 1s ease-out forwards;
+  }
+  .slideOutLeft {
+    animation: slideOutLeft 1s ease-out forwards;
+  }
+  .fadeOut {
+    animation: fadeOut 1s ease-out forwards;
+  }
+
+  #indexAnimatedGraph img {
+    animation: slideOutTop 1s ease-out forwards;
+  }
+  #vectorContainer {
+    animation: fadeOut 1s ease-out forwards;
+  }
+
+  #airdrop {
+    animation: fadeOut 1s ease-out forwards;
+  }
+
+  .cashflow-animated-graph {
+    animation: slideOutLeft 1s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInTop {
+  0% { transform: translateY(100%); }
+  70% { transform: translateY(-5%);}
+  100% { transform: translateY(0);}
+}
+@keyframes slideInRight {
+  0% { transform: translateX(-100%); }
+  70% { transform: translateX(05%);}
+  100% { transform: translateX(0);}
+}
+@keyframes slideInLeft {
+  0% { transform: translateX(100%); }
+  70% { transform: translateX(-05%);}
+  100% { transform: translateX(0);}
+}
+@keyframes slideInBottom {
+  0% { transform: translateY(-100%); }
+  70% { transform: translateY(05%);}
+  100% { transform: translateY(0);}
+}
+
+@keyframes slideInBottomRight {
+  from { transform: translateX(-100%) translateY(-100%); }
+  to { transform: translateX(0) translateY(0); }
+}
+@keyframes slideInTopRight {
+  from { transform: translateX(-100%) translateY(100%); }
+  to { transform: translateX(0) translateY(0); }
+}
+
+@keyframes slideOutTop {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc( (100% + 100px) * -1)); }
+}
+@keyframes slideOutLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%);}
+}
+@keyframes slideOutRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(150%);}
+}

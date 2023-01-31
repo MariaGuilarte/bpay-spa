@@ -1,0 +1,50 @@
+.page-index {
+  @media(min-width: 992px){
+    h1 span {
+      font-size: 3rem;
+    }
+  }
+}
+.bp-page-title {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.5em;
+  margin: 0 0 .5rem 0;
+  @media(min-width: 992px){
+    font-size: 4em;
+  }
+}
+.bp-page-subtitle {
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1.5em;
+  margin: 0 0 2.5rem 0;
+  @media(min-width: 992px){
+    font-size: 2em;
+  }
+}
+.text-block {
+  line-height: 1.5em;
+  h1 {
+    margin: 0 0 .35em 0;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      line-height: 2rem;
+      font-weight: 300;
+    }
+  }
+}
+
+.theme-gradient {
+  .bp-page-title, .bp-page-subtitle, p {
+    color: #fff;
+  }
+}
+.theme-flat {
+  .bp-page-title, .bp-page-subtitle, p {
+    color: var(--primary);
+  }
+}
