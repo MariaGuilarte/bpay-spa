@@ -6,7 +6,7 @@
   background-repeat: no-repeat !important;
   background-blend-mode: overlay !important;
 }
-.page-index {
+.page-index, .page-base {
   background: url('/src/assets/img/bg_index.png') 0 100px, var(--bg-gradient);
   transition: background-position .5s;
 }

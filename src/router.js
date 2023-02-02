@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
-  { path: '/', component: () => import('./pages/Index.vue'), name: 'index' },
+  { path: '', component: () => import('./pages/Index.vue'), name: 'base' },
   { path: '/grid', component: () => import('./pages/Grid.vue'), name: 'grid' },
   { path: '/index', component: () => import('./pages/Index.vue'), name: 'index' },
   { path: '/about', component: () => import('./pages/About.vue'), name: 'about' },
@@ -23,6 +23,10 @@ const router = createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
   history: createWebHashHistory(),
   routes, // short for `routes: routes`
+  scrollBehavior (to, from, savedPosition) {
+    // return desired position
+    return { top: 0 }
+  }
 })
 
 export default router;

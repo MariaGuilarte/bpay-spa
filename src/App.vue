@@ -1,6 +1,11 @@
 <script setup>
 import { onMounted } from 'vue';
+import {useRouter, useRoute} from 'vue-router'
 import Navbar from './components/Navbar.vue'
+
+const router = useRouter()
+const route  = useRoute()
+
 const routes = [
   'index',
   'cashflow',
@@ -15,11 +20,21 @@ const routes = [
   'extra',
 ]
 
-function onScroll ({ target: { scrollTop, clientHeight, scrollHeight }}) {
-  console.log('Scrolling over')
-  if (scrollTop + clientHeight >= scrollHeight) {
-    console.log('You reached the bottom')
-  }
+const debounce = (func, timeout = 300) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
+
+function onScroll(event){
+  let target = event.target
+  let isBottom = (target.scrollTop > 0) &&  Math.abs(target.scrollHeight - target.scrollTop - target.clientHeight) < 1
+  if( !isBottom ) return
+  let nextPageIndex = routes.indexOf( route.name ) + 1
+  if( nextPageIndex > routes.length - 1 ) return
+  router.push({name: routes[ nextPageIndex ]})
 }
 
 onMounted(() => dayjs.extend(window.dayjs_plugin_duration))
@@ -33,27 +48,13 @@ onMounted(() => dayjs.extend(window.dayjs_plugin_duration))
       [`page-${ $route.name }`]: true,
       'page': true
       }"
-    style="min-height: 100vh;">
-    <!-- <div id="grid">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-1" v-for="n in 12"></div>
-        </div>
-      </div>
-    </div> -->
+    @scroll="onScroll">
     <Navbar></Navbar>
-    <router-view v-slot="{ Component }" @scroll="onScroll">
+    <router-view v-slot="{ Component }">
       <Transition>
         <component :is="Component"></component>
       </Transition>
     </router-view>
-
-    <ol class="testnav">
-      <li v-for="route in routes">
-        <router-link :to="{ path: route }">{{ route }}</router-link>
-      </li>
-    </ol>
-
   </div>
 </template>
 

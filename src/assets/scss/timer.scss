@@ -78,6 +78,24 @@
   transition: all .4s;
 }
 
+.bp-timer-title img {
+  transform: translateX(600%);
+  opacity: 0;
+  transition: all .5s;
+}
+
+.bp-timer-stats {
+  img, span { vertical-align: middle; }
+  img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    transform: translateX(-400%);
+    opacity: 0;
+    transition: all .5s;
+  }
+}
+
 .bp-timer:hover {
   .underlay {
     opacity: 1;
@@ -89,4 +107,22 @@
     transform: scale(1.1);
     padding: 1rem;
   }
+  .bp-timer-title {
+    text-align: left;
+    img {
+      transform: translateX(400%);
+      opacity: 1;
+    }
+  }
+  .bp-timer-stats {
+    font-weight: 600;
+    img {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.col-lg-4:first-child .bp-timer-title {
+  padding: 0 !important;
 }

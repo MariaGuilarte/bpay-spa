@@ -1,12 +1,12 @@
 <template>
   <div class="container main-content position-relative">
 
-    <div id="indexAnimatedGraph">
-      <img src="./../assets/img/blockpay1.gif" class="slide-out-top" />
+    <div class="index-animated-vector">
+      <img src="./../assets/img/blockpay1.gif" class="slideOutTop" />
     </div>
 
     <div class="row">
-      <div class="col-lg-6 offset-lg-1 text-white" id="vectorContainer" style="overflow: hidden;">
+      <div class="col-lg-6 offset-lg-1 text-white index-text-block fadeOut">
         <h1 class="bp-page-title mb-0">
           $BPAY, <span>an ERC20 token</span>
         </h1>
@@ -40,8 +40,8 @@
         <div style="font-weight: 500">
           Contract:
         </div>
-        <span style="font-weight: 300; overflow: hidden;">
-          <a href="https://snowtrace.io/token/0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf" class="text-white">
+        <span style="font-weight: 300;">
+          <a href="https://snowtrace.io/token/0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf" class="text-white contract-link">
             0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf
           </a>
         </span>

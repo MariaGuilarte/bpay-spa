@@ -3,7 +3,7 @@
     <div class="col-lg-10 mx-auto">
       <div class="row main-footer">
         <div class="col-lg-2 d-flex align-items-center justify-content-center">
-          <img src="./../assets/img/logo.png" style="max-width: 100%;" />
+          <img src="./../assets/img/logo.png" style="max-width: 200px; width: 100%;" />
         </div>
         <div class="col-lg-3 d-flex justify-content-center">
           <ul class="main-footer-nav">

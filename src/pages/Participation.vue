@@ -1,5 +1,5 @@
 <template>
-<div class="container main-content">
+<div class="container main-content position-relative">
   <div class="row fadeIn">
     <div class="col-lg-8 mx-auto text-primary px-0" style="padding-top: 50px;">
       <div class="text-center slideOutRight">

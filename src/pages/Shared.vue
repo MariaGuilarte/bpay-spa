@@ -8,7 +8,7 @@
     <div class="container">
       <div class="slideOutTop">
         <div class="row">
-          <div class="col-lg-5 offset-lg-1 text-primary text-block slideInRight" id="shared-textblock">
+          <div class="col-lg-5 offset-lg-1 text-primary text-block slideInRight fadeOut" id="shared-textblock">
             <h1 class="bp-page-title">
               Shared Revenue
             </h1>

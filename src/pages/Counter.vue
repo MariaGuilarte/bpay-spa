@@ -15,7 +15,7 @@ const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) :
       src="./../assets/img/counter.png" style="position: absolute; left: 0; top: 0; bottom: 0; height: 100%;"
     />
 
-    <div class="container">
+    <div class="container position-relative">
       <div class="row py-100 fadeIn slideOutRight">
         <div class="col-lg-10 mx-auto text-lg-right">
           <h1 class="bp-page-title">

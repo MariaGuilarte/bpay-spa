@@ -3,7 +3,7 @@
     <div class="overlay"></div>
     <div class="container main-content position-relative">
       <div class="row">
-        <div class="col-lg-5 d-none d-sm-block chicken-wrapper slideOutLeft">
+        <div class="col-lg-5 chicken-wrapper slideOutLeft">
           <img src="./../assets/img/chicken_frame_top.png" class="chicken-frame-top" alt="">
           <img src="./../assets/img/chicken.png" class="chicken" alt="">
           <img src="./../assets/img/chicken_frame.png" class="chicken-frame-bottom" alt="">
@@ -38,9 +38,11 @@
   }
 }
 #extra-page {
-  padding-top: 100px;
-  margin-top: -100px;
   background: linear-gradient(116.82deg, #3605D3 0%, #3605D3 0.01%, #6400AE 64.39%);
+  @media(min-width: 991px){
+    padding-top: 100px;
+    margin-top: -100px;
+  }
 }
 
 .overlay {
@@ -52,7 +54,6 @@
   opacity: .2;
 
   background-image: url('./../assets/img/extra_background.png');
-  // background-color: #D9D9D9;
   background-blend-mode: hard-light;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -62,26 +63,38 @@
 
 .chicken-wrapper {
   position: relative;
-  height: calc(100vh);
-
+  height: 350px;
   img {
     position: absolute;
   }
 }
 
-.chicken {
+img.chicken {
   animation: slideInRight 1s forwards;
+  width: 300px;
 }
 
-.chicken-frame-top {
+img.chicken-frame-top {
   animation: slideInBottomRight 1s forwards;
   top: 0;
   left: 0;
+  width: 200px;
 }
 
-.chicken-frame-bottom {
+img.chicken-frame-bottom {
   animation: slideInTopRight 1s forwards;
   bottom: 0;
   left: 0;
+  width: 200px;
+}
+@media(min-width: 991px){
+  .chicken-wrapper {
+    height: calc(100vh);
+  }
+  img.chicken,
+  img.chicken-frame-top,
+  img.chicken-frame-bottom {
+    width: initial;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="main-content position-relative">
 
-    <img src="./../assets/img/cashflow.png" alt="" class="cashflow-animated-graph"/>
+    <img src="./../assets/img/cashflow.png" alt="" class="cashflow-animated-graph fadeIn"/>
 
     <div class="container">
       <div class="row main-content">
@@ -29,7 +29,7 @@
   height: 307px;
 }
 @media(min-width: 991px){
-  #chasflow-textblock {
+  #cashflow-textblock {
     padding: 142px 50px 0 0;
   }
   .cashflow-animated-graph {

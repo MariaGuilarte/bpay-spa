@@ -44,7 +44,7 @@ const items = ref([
           <div class="td">
             <div class="bg">
               <div>
-                <img :src="`./../src/assets/img/${item.icon}`" style="width: 100%;" />
+                <img :src="`/${item.icon}`" style="width: 100%;" />
               </div>
               <div style="flex: 0 1 auto;">
                 {{ item.title }}
@@ -83,7 +83,7 @@ const items = ref([
     <div class="col-lg-4 offset-lg-1">
       <div class="plan-card" v-if="currentItem">
         <div class="plan-overlay"></div>
-        <img :src="`./../src/assets/img/${currentItem.badge}`" style="width: 100%;" />
+        <img :src="`/${currentItem.badge}`" style="width: 100%;" />
       </div>
     </div>
   </div>

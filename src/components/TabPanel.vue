@@ -27,7 +27,7 @@
         <div class="tabpanel-showcase">
           <div class="title">
             {{ currentPlan.value3 }}
-            <img :src="`./src/assets/img/${ currentPlan.icon3 }`"/>
+            <img :src="`/${ currentPlan.icon3 }`"/>
           </div>
           <div class="subtitle">Available egg to claim</div>
           <div class="description">Est. 127,750 egg a day</div>

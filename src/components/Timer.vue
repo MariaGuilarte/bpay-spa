@@ -11,6 +11,10 @@ const { targetDate } = defineProps({
     type: String,
     default: ''
   },
+  'statLeft': String,
+  'statRight': String,
+  'icon': String,
+  'statLeftIcon': String,
 })
 
 const now = useNow()
@@ -22,10 +26,10 @@ const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) :
   <div class="timer-wrapper">
     <div class="bp-timer mb-5">
       <div class="underlay"></div>
-      <div class="bp-timer-title">
-        <span style="white-space: nowrap;">
-          {{ title }}
+      <div class="bp-timer-title px-lg-4">
+        <span v-html="title">
         </span>
+        <img :src="'/' + icon"/>
       </div>
       <div class="bp-timer-date">
         {{ until.format('DD MMMM YYYY, HH:mm') }} EST
@@ -67,10 +71,11 @@ const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) :
 
       <div class="bp-timer-stats">
         <div class="col-lg-6">
-          2.5 AVAX
+          <img :src="`/${statLeftIcon}`"/>
+          <span>{{  statLeft  }}</span>
         </div>
         <div class="col-lg-6">
-          MAX: 5
+          {{ statRight }}
         </div>
       </div>
     </div>

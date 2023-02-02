@@ -2,7 +2,7 @@
   <div class="main-content position-relative" style="padding-bottom: 150px;">
 
     <div class="shared2-animated-graph d-none d-lg-block">
-      <img src="./../assets/img/cards.png" style="margin-top: 50px;" class="slideOutTop slideInLeft" />
+      <img src="./../assets/img/cards.png" class="slideOutTop slideInLeft" />
     </div>
 
     <div class="container">
@@ -39,20 +39,32 @@
 
 <style lang="scss">
 .shared2-animated-graph {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  text-align: center;
+  img {
+    width: 50%;
+  }
+  
+  @media(min-width: 991px){
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    img {
+      width: initial;
+      margin-top: 50px;
+    }
+  }
 }
 
 .shared-blockpay-logo {
-  img {
-    max-width: 100%;
-  }
+  display: none;
+  img { max-width: 100%; }
 }
+
 @media(min-width: 991px) {
   .shared-blockpay-logo {
     padding: 96px 0 0 45px;
+    display: block;
   }
   .shared2-textblock {
     padding-left: 45px;

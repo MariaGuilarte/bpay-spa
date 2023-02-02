@@ -1,5 +1,5 @@
 <template>
-  <div class="container main-content">
+  <div class="container main-content position-relative">
     <div class="row main-content align-items-center" id="airdrop">
       <div class="col-lg-5 position-relative fadeIn">
         <img src="./../assets/img/blockpay3.gif" alt="" style="width: 100%;">
