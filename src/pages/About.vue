@@ -38,6 +38,12 @@
 </template>
 
 <style lang="scss">
+.page-about .main-content {
+  padding-top: 60px;
+  @media(min-width: 991px){
+    padding: 0;
+  }
+}
 .about-underlay {
   position: absolute;
   top: 0;
@@ -52,7 +58,7 @@
 }
 .about-pos {
   max-width: 200px;
-  display: none !important;
+  display: none;
   margin: 0 auto;
 }
 .about-gradient-cube {
@@ -72,7 +78,7 @@
 }
 .v-leave-active {
   .fadeOutInstant {
-    display: none;
+    display: none !important;
   }
 }
 

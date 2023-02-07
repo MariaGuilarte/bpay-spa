@@ -2,7 +2,7 @@
   <div class="container main-content position-relative">
     <div class="row main-content align-items-center" id="airdrop">
       <div class="col-lg-5 position-relative fadeIn">
-        <img src="./../assets/img/blockpay3.gif" alt="" style="width: 100%;">
+        <img src="/blockpay3.gif" alt="" style="width: 100%;">
       </div>
       <div class="col-lg-5 ps-xxl-5 text-center text-lg-right slideInLeft">
         <h1 class="bp-page-title">BPAY Airdrop</h1>

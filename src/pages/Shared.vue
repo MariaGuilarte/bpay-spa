@@ -2,7 +2,7 @@
   <div class="main-content position-relative">
 
     <div class="shared-vector-container">
-      <img src="./../assets/img/shared.gif" class="slideInTop slideOutTop" />
+      <img src="/shared.gif" class="slideInTop slideOutTop" />
     </div>
 
     <div class="container">

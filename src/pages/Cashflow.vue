@@ -4,8 +4,7 @@
     <img src="./../assets/img/cashflow.png" alt="" class="cashflow-animated-graph fadeIn"/>
 
     <div class="container">
-      <div class="row main-content">
-
+      <div class="row">
         <div id="cashflow-textblock" class="col-lg-5 offset-lg-6 text-primary text-block text-lg-right slideInTop slideOutRight">
           <h1 class="bp-page-title">
             Positive Cash Flow

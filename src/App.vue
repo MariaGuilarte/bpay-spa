@@ -1,10 +1,12 @@
 <script setup>
-import { onMounted } from 'vue';
-import {useRouter, useRoute} from 'vue-router'
+import { now } from '@vueuse/shared';
+import { ref, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 
 const router = useRouter()
-const route  = useRoute()
+const route = useRoute()
+const lastScroll = ref(null)
 
 const routes = [
   'index',
@@ -28,27 +30,54 @@ const debounce = (func, timeout = 300) => {
   };
 }
 
-function onScroll(event){
+function onScroll(event) {
+  if ((now() - lastScroll.value) < 1000) return
   let target = event.target
-  let isBottom = (target.scrollTop > 0) &&  Math.abs(target.scrollHeight - target.scrollTop - target.clientHeight) < 1
-  if( !isBottom ) return
-  let nextPageIndex = routes.indexOf( route.name ) + 1
-  if( nextPageIndex > routes.length - 1 ) return
-  router.push({name: routes[ nextPageIndex ]})
+  let isTop = (target.scrollTop == 0)
+  let isBottom = (target.scrollTop > 0) && Math.abs(target.scrollHeight - target.scrollTop - target.clientHeight) < 1
+
+  if (isBottom) {
+    let nextPageIndex = routes.indexOf(route.name) + 1
+    if (nextPageIndex > routes.length - 1) return
+    lastScroll.value = now()
+    router.push({ name: routes[nextPageIndex] })
+  }
+  else if (isTop) {
+    let prevPageIndex = routes.indexOf(route.name) - 1
+    if (prevPageIndex < 0) return
+    lastScroll.value = now()
+    router.push({ name: routes[prevPageIndex] })
+  }
 }
 
 onMounted(() => dayjs.extend(window.dayjs_plugin_duration))
 </script>
 
 <template>
-  <div
-    :class="{
-      'theme-flat': $route.meta.lighttheme,
-      'theme-gradient': !$route.meta.lighttheme,
-      [`page-${ $route.name }`]: true,
-      'page': true
-      }"
-    @scroll="onScroll">
+  <div :class="{
+    'theme-flat': $route.meta.lighttheme,
+    'theme-gradient': !$route.meta.lighttheme,
+    [`page-${$route.name}`]: true,
+    'page': true
+  }" @scroll="onScroll">
+    <div id="grid">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-1"></div>
+        </div>
+      </div>
+    </div>
     <Navbar></Navbar>
     <router-view v-slot="{ Component }">
       <Transition>
@@ -81,6 +110,8 @@ onMounted(() => dayjs.extend(window.dayjs_plugin_duration))
   left: 0;
   bottom: 0;
   right: 0;
+  pointer-events: none;
+  display: none;
 
   .col-lg-1 {
     border-right: 1px solid red;

@@ -2,7 +2,7 @@
   <div class="container main-content position-relative">
 
     <div class="index-animated-vector">
-      <img src="./../assets/img/blockpay1.gif" class="slideOutTop" />
+      <img src="/blockpay1.gif" class="slideOutTop" />
     </div>
 
     <div class="row">

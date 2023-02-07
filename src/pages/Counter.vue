@@ -11,7 +11,7 @@ const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) :
   <div class="main-content position-relative">
 
     <img
-      class="fadeOut fadeIn d-none d-lg-block"
+      class="fadeOut fadeIn"
       src="./../assets/img/counter.png" style="position: absolute; left: 0; top: 0; bottom: 0; height: 100%;"
     />
 

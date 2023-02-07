@@ -67,7 +67,7 @@
           v-for="item in items"
           :class="{active: item == currentItem }"
           @click="currentItem = item">
-          <img :src="`./../src/assets/img/${ item.title.icon }`" alt="">
+          <img :src="`/${ item.title.icon }`" alt="">
           <span>
             {{ item.title.text }}
           </span>
@@ -82,7 +82,7 @@
     <div class="col-lg-4">
       <div class="plan-feature-stats" v-if="currentItem">
         <div v-for="stat in currentItem.stats">
-          <img :src="`./../src/assets/img/${ stat.icon }`" alt="">
+          <img :src="`/${ stat.icon }`" alt="">
           <span style="white-space: nowrap;">
             {{ stat.text }}
           </span>

@@ -1,14 +1,18 @@
 .bp-navbar {
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10000;
+
   &.active {
     background: var(--bg-gradient);
   }
 
   @media(min-width: 991px) {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    position: relative;
     overflow: hidden;
     height: auto;
     padding: 1em 0;
