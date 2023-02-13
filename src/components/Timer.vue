@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { useNow } from '@vueuse/core';
 
 const { targetDate } = defineProps({
@@ -26,7 +26,7 @@ const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) :
   <div class="timer-wrapper">
     <div class="bp-timer mb-5">
       <div class="underlay"></div>
-      <div class="bp-timer-title px-lg-4">
+      <div class="bp-timer-title">
         <span v-html="title">
         </span>
         <img :src="'/' + icon"/>

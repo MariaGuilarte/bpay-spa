@@ -3,7 +3,7 @@ import TimerFooter from '../components/TimerFooter.vue';
 import Timer from '../components/Timer.vue';
 const timers = [
   {
-    title: 'Pre Sale Access NFT Mint',
+    title: 'Pre Sale <br> Access NFT Mint',
     statLeft: '2.5 AVAX',
     statRight: 'Max: 5',
     icon: 'server.svg',

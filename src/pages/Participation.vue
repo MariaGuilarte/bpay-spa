@@ -20,6 +20,11 @@
 </template>
 
 <style lang="scss">
+.page-participation {
+  @media(min-width: 991px){
+    padding-bottom: 150px;
+  }
+}
 .plan-card {
   background: #6400AE;
   padding: 2.5em;

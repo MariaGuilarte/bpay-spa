@@ -1,13 +1,12 @@
 <script setup>
-import { now } from '@vueuse/shared';
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 
+const pageContainer = ref(null)
+
 const router = useRouter()
 const route = useRoute()
-const lastScroll = ref(null)
-
 const routes = [
   'index',
   'cashflow',
@@ -22,62 +21,72 @@ const routes = [
   'extra',
 ]
 
-const debounce = (func, timeout = 300) => {
-  let timer;
+var limitedSkipPage;
+var goToIndex;
+
+function skipPage(index = 1){
+  goToIndex = route.name == 'base' ? 1 : routes.indexOf(route.name) + index
+  if( (goToIndex < 0) || (goToIndex > routes.length - 1)) return
+  touchStartedAt = null
+  router.push({ name: routes[goToIndex] })
+}
+
+function throtle(callback, limit = 1000) {
+  let locked;
   return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
-  };
+    if (locked) return
+    locked = true
+    callback(args[0])
+    setTimeout(() => locked = false, limit)
+  }
+}
+
+function onWheel(wheelEvent) {
+  if (wheelEvent.deltaY > 0) return
+  if( pageContainer.value.scrollTop != 0 ) return
+  limitedSkipPage(-1)
+}
+
+var touchStartedAt = null;
+
+function onTouchStart(e){
+  touchStartedAt = e.changedTouches[0].screenY
+}
+
+function touchListener(e) {
+  let touchEndAt = Math.round( e.changedTouches[0].screenY )
+
+  if (touchEndAt === touchStartedAt) return;
+  if (touchEndAt < touchStartedAt) return;
+  if( pageContainer.value.scrollTop == 0 ){
+    limitedSkipPage(-1)
+  }
 }
 
 function onScroll(event) {
-  if ((now() - lastScroll.value) < 1000) return
-  let target = event.target
-  let isTop = (target.scrollTop == 0)
-  let isBottom = (target.scrollTop > 0) && Math.abs(target.scrollHeight - target.scrollTop - target.clientHeight) < 1
+  let isTop    = (pageContainer.value.scrollTop == 0)
+  let isBottom = Math.abs(pageContainer.value.scrollHeight - pageContainer.value.scrollTop - pageContainer.value.clientHeight) < 1
 
-  if (isBottom) {
-    let nextPageIndex = routes.indexOf(route.name) + 1
-    if (nextPageIndex > routes.length - 1) return
-    lastScroll.value = now()
-    router.push({ name: routes[nextPageIndex] })
-  }
-  else if (isTop) {
-    let prevPageIndex = routes.indexOf(route.name) - 1
-    if (prevPageIndex < 0) return
-    lastScroll.value = now()
-    router.push({ name: routes[prevPageIndex] })
-  }
+  if(!isBottom) return
+  limitedSkipPage()
 }
 
-onMounted(() => dayjs.extend(window.dayjs_plugin_duration))
+onMounted(() => {
+  dayjs.extend(window.dayjs_plugin_duration)
+  limitedSkipPage = throtle(skipPage, 1000)
+})
 </script>
 
 <template>
-  <div :class="{
+  <div ref="pageContainer" :class="{
     'theme-flat': $route.meta.lighttheme,
     'theme-gradient': !$route.meta.lighttheme,
     [`page-${$route.name}`]: true,
     'page': true
-  }" @scroll="onScroll">
-    <div id="grid">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-1"></div>
-        </div>
-      </div>
-    </div>
+  }" @scroll="onScroll"
+     @wheel="onWheel"
+     @touchstart="onTouchStart"
+     @touchmove="touchListener">
     <Navbar></Navbar>
     <router-view v-slot="{ Component }">
       <Transition>

@@ -7,7 +7,7 @@
   animation-delay: 2.15s;
   opacity: 0;
   @media (min-width: 992px) {
-    padding-left: 55px;
+    padding: 0 0 200px 55px;
     h1 {
       white-space: nowrap;
     }
@@ -17,10 +17,10 @@
 .index-animated-vector {
   overflow: hidden;
   img { width: 200px; display: block; margin: 0 auto; }
+  
   @media (min-width: 992px) {
     position: absolute;
     top: 0;
-    bottom: 0;
     left: calc(50% - 262px);
     padding-left: 50px;
 

@@ -9,6 +9,7 @@
 @import 'page-counter.scss';
 @import 'animations.scss';
 @import 'tabpanel.scss';
+@import 'tabpanel-animations.scss';
 @import 'backgrounds.scss';
 
 body {
@@ -20,6 +21,9 @@ body {
 #app {
   height: 100vh;
   overflow: hidden;
+}
+img {
+  pointer-events: none;
 }
 .page {
   box-sizing: border-box;
