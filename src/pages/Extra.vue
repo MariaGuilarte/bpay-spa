@@ -10,11 +10,8 @@
         </div>
         <div class="col-lg-6 pe-sm-0 slideInLeft slideOutRight">
           <h1 class="bp-page-title text-lg-right pt-5">Extra</h1>
-          <p class="bp-page-subtitle text-lg-right mb-0" style="font-weight: 700">$egg drops and raffles from El
-            Gallinero</p>
-          <p class="text-lg-right">
-            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-            laoreet dolore magna aliquam erat volutpat.
+          <p class="bp-page-subtitle text-lg-right mb-0" style="font-weight: 700">
+            $egg drops and raffles from El Gallinero
           </p>
 
           <div class="tab-panel-wrapper">

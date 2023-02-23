@@ -2,15 +2,11 @@
   <div class="main-content position-relative">
 
     <div class="shared2-animated-graph">
-      <img src="./../assets/img/cards.png" class="slideOutTop slideInLeft" />
+      <img src="./../assets/img/cards.png" class="slideOutTop fadeOut slideInLeft" />
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-7 offset-lg-1 shared-blockpay-logo slideOutTop">
-          <img src="./../assets/img/blockpay_logo_vector_2.png" alt="">
-        </div>
-
         <div class="col-lg-6 offset-lg-1 shared2-textblock slideInRight fadeOut">
           <h1 class="bp-page-title mt-0" style="margin-bottom: 20px;">
             Shared Revenue
@@ -49,19 +45,22 @@
 }
 
 @media(min-width: 991px) {
+  .page-shared2 .bp-page-subtitle {
+    font-size: 2em !important;
+  }
   .shared2-animated-graph {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    img { width: initial; margin-top: 50px;}
+    img { width: initial; margin: 180px -50px 0 0;}
   }
   .shared-blockpay-logo {
     padding: 96px 0 0 45px;
     display: block;
   }
   .shared2-textblock {
-    padding-left: 45px;
+    padding-top: 170px;
   }
 }
 
@@ -81,7 +80,7 @@
 .shared-gradient-cube {
   position: absolute;
   left: 10px;
-  top: 570px;
+  top: 510px;
 }
 
 .shared-outlined-cube {

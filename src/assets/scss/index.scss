@@ -1,15 +1,23 @@
 .page-index .main-content {
   padding-bottom: 100px;
 }
+.page-index .bp-page-subtitle,
+.page-base .bp-page-subtitle {
+  @media(min-width: 992px){
+    font-size: 1.5em !important;
+    font-weight: 400 !important;
+  }
+}
 
 .index-text-block {
   animation: fadeIn 1s forwards;
   animation-delay: 2.15s;
   opacity: 0;
   @media (min-width: 992px) {
-    padding: 0 0 200px 55px;
+    padding: 50px 0 200px 55px;
     h1 {
       white-space: nowrap;
+      font-weight: 700;
     }
   }
 }

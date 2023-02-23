@@ -10,12 +10,13 @@
             Positive Cash Flow
           </h1>
           <div class="bp-page-subtitle" style="margin-bottom: 30px;">
-            From non-crypto financial services used every day.
+            From non-crypto financial services<br> used every day.
           </div>
           <p>
-            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-            laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            We charge transaction fees from +1,100 active POS terminals and +10,000 circulating prepaid cards.
+          </p>
+          <p>
+            Business owners and their customers
           </p>
         </div>
       </div>
@@ -24,12 +25,17 @@
 </template>
 
 <style lang="scss">
+.page-cashflow .container {
+  @media(min-width: 991px){
+    padding: 0;
+  }
+}
 .cashflow-animated-graph {
   height: 307px;
 }
 @media(min-width: 991px){
   #cashflow-textblock {
-    padding: 142px 50px 0 0;
+    padding: 142px 0 0 60px;
   }
   .cashflow-animated-graph {
     display: block;
@@ -37,7 +43,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    height: 100%;
+    height: calc(100vh - 160px);
   }
 }
 </style>

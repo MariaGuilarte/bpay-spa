@@ -1,35 +1,31 @@
 <template>
   <div>
     <div class="container main-content text-white position-relative">
-      <div class="row fadeOut">
-        <div class="col-lg-12 col-xxl-10 mx-auto">
-
-          <div class="row justify-content-lg-end">
-            <h1 class="bp-page-title p-4 position-relative" style="width: fit-content; overflow: hidden;">
-              <div class="slideInBottomRight">
-                Meet the Team
-              </div>
-            </h1>
+      <div class="row justify-content-lg-end">
+        <h1 class="bp-page-title p-4 position-relative" style="width: fit-content; overflow: hidden;">
+          <div class="slideInBottomRight">
+            Meet the Team
           </div>
-
-          <div class="row">
-            <div class="col-lg-6" v-for="n in 4">
-              <div class="team-member d-flex flex-column flex-lg-row ps-lg-5 mb-5">
-                <div class="team-member-circle">
-                  <img :src="`/team_member_${n}.png`" style="width: 100%;" />
-                </div>
-                <div class="py-4 ps-lg-4 pe-lg-5">
-                  <h4 style="font-size: 1.5em; margin: 0;">
-                    Integrante {{ n }}
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                    ut
-                    laoreet.
-                  </p>
-                </div>
+        </h1>
+      </div>
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 col-md-4 team-member" v-for="n in 16">
+          <div class="graphics-container">
+            <div class="sparks">
+              <img src="./../assets/img/sparks.svg" alt="">
+              <img src="./../assets/img/sparks.svg" alt="">
+            </div>
+            <div class="outer-circle">
+              <div class="inner-circle">
+                <img src="./../assets/img/4.png" alt="">
               </div>
             </div>
+          </div>
+          <div class="text-center">
+            <h4>Nombre Apellido</h4>
+            <p>
+              Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit.
+            </p>
           </div>
         </div>
       </div>
@@ -43,38 +39,61 @@ import MainFooter from '../components/MainFooter.vue';
 </script>
 
 <style lang="scss">
-.team-member {
-  align-items: center;
-
-  @media(min-width: 991px) {
-    align-items: initial;
-  }
-}
-
-.team-member-circle {
-  width: 200px;
-  height: 200px;
-  padding: 1em;
-  border-radius: 100%;
-  flex: 0 0 200px;
-  overflow: hidden;
-
-  background: rgba(217, 217, 217, 0.01);
-  box-shadow: inset 0px 15px 13px rgba(255, 255, 255, 0.5), inset 0px 7px 3px #FFFFFF, inset 0px -23px 15px rgba(96, 68, 144, 0.3), inset 0px 22px 40px rgba(202, 172, 255, 0.3), inset 0px 4px 20px rgba(154, 146, 210, 0.3), inset 0px 1px 20px rgba(227, 222, 255, 0.2);
-  backdrop-filter: blur(50px);
-
-  img {
-    border-radius: 50%;
-  }
-
-  @media(min-width: 991px) {
-    width: 225px;
-    height: 225px;
-    flex-basis: 225px;
-  }
-}
-
 .page-team {
-  padding-bottom: 72px;
+  * {
+    box-sizing: border-box;
+  }
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.graphics-container {
+  @extend .flex-center;
+  margin: 0 auto;
+  position: relative;
+
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, #FD0FF3 0%, rgba(217, 217, 217, 0) 100%, rgba(188, 15, 253, 0) 100%);
+}
+.sparks {
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+}
+.outer-circle {
+  @extend .flex-center;
+  width: 130px;
+  height: 130px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.inner-circle {
+  @extend .flex-center;
+  height: 100px;
+  width: 100px;
+  padding: 8px;
+  background: rgba(217, 217, 217, 0.01);
+  box-shadow: inset 0px -8px 7px rgba(255, 255, 255, 0.75), inset 0px 5px 10px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(11.5px);
+  border-radius: 50%;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 </style>

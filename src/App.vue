@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 
@@ -7,28 +7,44 @@ const pageContainer = ref(null)
 
 const router = useRouter()
 const route = useRoute()
-const routes = [
-  'index',
-  'cashflow',
-  'shared',
-  'timer',
-  'about',
-  'shared2',
-  'team',
-  'counter',
-  'participation',
-  'airdrop',
-  'extra',
-]
+
+const currentRouteGroup = computed(()=>{
+  if ( route.name == 'default' ){ return routes.group1 }
+  if ( route.name == 'base' ){ return routes.group1 }
+  if ( routes.group1.includes(route.name) ) { return routes.group1 }
+  if ( routes.group2.includes(route.name) ) { return routes.group2 }
+  if ( routes.group3.includes(route.name) ) { return routes.group3 }
+  return []
+})
+
+const routes = {
+  group1: [
+    'index',
+    'cashflow',
+    'shared',
+    'timer'
+  ],
+  group2: [
+    'about',
+    'shared2',
+    'team',
+  ],
+  group3: [
+    'counter',
+    'participation',
+    'airdrop',
+    'extra',
+  ]
+}
 
 var limitedSkipPage;
 var goToIndex;
 
 function skipPage(index = 1){
-  goToIndex = route.name == 'base' ? 1 : routes.indexOf(route.name) + index
-  if( (goToIndex < 0) || (goToIndex > routes.length - 1)) return
+  goToIndex = route.name == 'base' ? 1 : currentRouteGroup.value.indexOf(route.name) + index
+  if( (goToIndex < 0) || (goToIndex > currentRouteGroup.value.length - 1)) return
   touchStartedAt = null
-  router.push({ name: routes[goToIndex] })
+  router.push({ name: currentRouteGroup.value[goToIndex] })
 }
 
 function throtle(callback, limit = 1000) {

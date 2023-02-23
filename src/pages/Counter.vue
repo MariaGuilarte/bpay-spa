@@ -3,26 +3,28 @@ import { computed } from 'vue';
 import { useNow } from '@vueuse/core';
 
 const now = useNow()
-const until = dayjs('2023-02-30')
+const until = dayjs('2023-02-24')
 const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) : dayjs.duration(until.diff(now.value)))
 </script>
 
 <template>
-  <div class="main-content position-relative">
-
-    <img
-      class="fadeOut fadeIn"
-      src="./../assets/img/counter.png" style="position: absolute; left: 0; top: 0; bottom: 0; height: 100%;"
-    />
+  <div class="main-content">
+    <video
+      autoplay
+      muted
+      loop
+      class="video-background">
+      <source src="./../assets/video/sale.mp4" type="video/mp4">
+    </video>
 
     <div class="container position-relative">
-      <div class="row py-100 fadeIn slideOutRight">
+      <div class="row py-100 slideInRight slideOutRight">
         <div class="col-lg-10 mx-auto text-lg-right">
           <h1 class="bp-page-title">
-            Pre Access NFT Mints
+            Access NFT
           </h1>
-          <p class="text-white mb-3">
-            {{ until.format('DD MMMM YYYY, HH:mm') }} EST
+          <p class="text-white mb-3" style="font-size: 1.5em;">
+            {{ until.format('DD MMMM YYYY') }}
           </p>
         </div>
         <div class="row">

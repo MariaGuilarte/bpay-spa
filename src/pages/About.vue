@@ -19,13 +19,6 @@
           Everything you need, in one place.
         </p>
       </div>
-      <div class="col-lg-8 mx-auto text-center fadeOutInstant px-lg-70">
-        <p class="mt-0">
-          Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-          laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        </p>
-      </div>
     </div>
     </div>
     <div class="about-underlay" style="opacity: 1;">

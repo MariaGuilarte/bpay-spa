@@ -75,7 +75,7 @@ const items = ref([
       </div>
       <div class="cta-container mx-auto">
         <a href="#" class="btn-cta px-5">
-          Mint
+          MINT
         </a>
       </div>
     </div>

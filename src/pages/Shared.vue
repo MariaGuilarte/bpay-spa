@@ -1,11 +1,15 @@
 <template>
   <div class="main-content position-relative">
 
-    <div class="shared-vector-container">
-      <img src="/shared.gif" class="slideInTop slideOutTop" />
-    </div>
+    <video
+      autoplay
+      muted
+      loop
+      class="video-background">
+      <source src="./../assets/video/shared.mp4" type="video/mp4">
+    </video>
 
-    <div class="container">
+    <div class="container position-relative">
       <div class="slideOutTop">
         <div class="row">
           <div class="col-lg-5 offset-lg-1 text-primary text-block slideInRight fadeOut" id="shared-textblock">
@@ -13,12 +17,13 @@
               Shared Revenue
             </h1>
             <div class="bp-page-subtitle" style="margin-bottom: 30px;">
-              With Avalanche Validators that participate in our<br> subnet.
+              From non-crypto financial services<br> used every day.
             </div>
             <p>
-              Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-              laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              We charge transaction fees from +1,100 active POS terminals and +10,000 circulating prepaid cards.
+            </p>
+            <p>
+              Business owners and their customers
             </p>
           </div>
         </div>
@@ -28,13 +33,6 @@
 </template>
 
 <style lang="scss">
-.shared-vector-container {
-  overflow: hidden;
-  img {
-    width: 100%;
-  }
-}
-
 @media(min-width: 991px) {
   .shared-vector-container {
     padding-top: 55px;
@@ -52,7 +50,6 @@
 
   #shared-textblock {
     padding-top: 96px;
-    padding-left: 43px;
   }
 }
 </style>
