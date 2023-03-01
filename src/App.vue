@@ -1,54 +1,108 @@
 <script setup>
-import { onMounted } from 'vue';
-import {useRouter, useRoute} from 'vue-router'
+import { ref, onMounted, computed } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 
+const pageContainer = ref(null)
+
 const router = useRouter()
-const route  = useRoute()
+const route = useRoute()
 
-const routes = [
-  'index',
-  'cashflow',
-  'shared',
-  'timer',
-  'about',
-  'shared2',
-  'team',
-  'counter',
-  'participation',
-  'airdrop',
-  'extra',
-]
+const currentRouteGroup = computed(()=>{
+  if ( route.name == 'default' ){ return routes.group1 }
+  if ( route.name == 'base' ){ return routes.group1 }
+  if ( routes.group1.includes(route.name) ) { return routes.group1 }
+  if ( routes.group2.includes(route.name) ) { return routes.group2 }
+  if ( routes.group3.includes(route.name) ) { return routes.group3 }
+  return []
+})
 
-const debounce = (func, timeout = 300) => {
-  let timer;
+const routes = {
+  group1: [
+    'index',
+    'cashflow',
+    'shared',
+    'timer'
+  ],
+  group2: [
+    'about',
+    'shared2',
+    'team',
+  ],
+  group3: [
+    'counter',
+    'participation',
+    'airdrop',
+    'extra',
+  ]
+}
+
+var limitedSkipPage;
+var goToIndex;
+
+function skipPage(index = 1){
+  goToIndex = route.name == 'base' ? 1 : currentRouteGroup.value.indexOf(route.name) + index
+  if( (goToIndex < 0) || (goToIndex > currentRouteGroup.value.length - 1)) return
+  touchStartedAt = null
+  router.push({ name: currentRouteGroup.value[goToIndex] })
+}
+
+function throtle(callback, limit = 1000) {
+  let locked;
   return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
-  };
+    if (locked) return
+    locked = true
+    callback(args[0])
+    setTimeout(() => locked = false, limit)
+  }
 }
 
-function onScroll(event){
-  let target = event.target
-  let isBottom = (target.scrollTop > 0) &&  Math.abs(target.scrollHeight - target.scrollTop - target.clientHeight) < 1
-  if( !isBottom ) return
-  let nextPageIndex = routes.indexOf( route.name ) + 1
-  if( nextPageIndex > routes.length - 1 ) return
-  router.push({name: routes[ nextPageIndex ]})
+function onWheel(wheelEvent) {
+  if (wheelEvent.deltaY > 0) return
+  if( pageContainer.value.scrollTop != 0 ) return
+  limitedSkipPage(-1)
 }
 
-onMounted(() => dayjs.extend(window.dayjs_plugin_duration))
+var touchStartedAt = null;
+
+function onTouchStart(e){
+  touchStartedAt = e.changedTouches[0].screenY
+}
+
+function touchListener(e) {
+  let touchEndAt = Math.round( e.changedTouches[0].screenY )
+
+  if (touchEndAt === touchStartedAt) return;
+  if (touchEndAt < touchStartedAt) return;
+  if( pageContainer.value.scrollTop == 0 ){
+    limitedSkipPage(-1)
+  }
+}
+
+function onScroll(event) {
+  let isTop    = (pageContainer.value.scrollTop == 0)
+  let isBottom = Math.abs(pageContainer.value.scrollHeight - pageContainer.value.scrollTop - pageContainer.value.clientHeight) < 1
+
+  if(!isBottom) return
+  limitedSkipPage()
+}
+
+onMounted(() => {
+  dayjs.extend(window.dayjs_plugin_duration)
+  limitedSkipPage = throtle(skipPage, 1000)
+})
 </script>
 
 <template>
-  <div
-    :class="{
-      'theme-flat': $route.meta.lighttheme,
-      'theme-gradient': !$route.meta.lighttheme,
-      [`page-${ $route.name }`]: true,
-      'page': true
-      }"
-    @scroll="onScroll">
+  <div ref="pageContainer" :class="{
+    'theme-flat': $route.meta.lighttheme,
+    'theme-gradient': !$route.meta.lighttheme,
+    [`page-${$route.name}`]: true,
+    'page': true
+  }" @scroll="onScroll"
+     @wheel="onWheel"
+     @touchstart="onTouchStart"
+     @touchmove="touchListener">
     <Navbar></Navbar>
     <router-view v-slot="{ Component }">
       <Transition>
@@ -81,6 +135,8 @@ onMounted(() => dayjs.extend(window.dayjs_plugin_duration))
   left: 0;
   bottom: 0;
   right: 0;
+  pointer-events: none;
+  display: none;
 
   .col-lg-1 {
     border-right: 1px solid red;

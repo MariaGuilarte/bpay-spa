@@ -1,5 +1,17 @@
+@media(max-width: 991px){
+  .page-index .video-background {
+    margin-left: -100vw;
+  }
+}
 .page-index .main-content {
   padding-bottom: 100px;
+}
+.page-index .bp-page-subtitle,
+.page-base .bp-page-subtitle {
+  @media(min-width: 992px){
+    font-size: 1.5em !important;
+    font-weight: 400 !important;
+  }
 }
 
 .index-text-block {
@@ -7,9 +19,10 @@
   animation-delay: 2.15s;
   opacity: 0;
   @media (min-width: 992px) {
-    padding-left: 55px;
+    padding: 50px 0 200px 55px;
     h1 {
       white-space: nowrap;
+      font-weight: 700;
     }
   }
 }
@@ -17,10 +30,10 @@
 .index-animated-vector {
   overflow: hidden;
   img { width: 200px; display: block; margin: 0 auto; }
+  
   @media (min-width: 992px) {
     position: absolute;
     top: 0;
-    bottom: 0;
     left: calc(50% - 262px);
     padding-left: 50px;
 

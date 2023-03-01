@@ -1,5 +1,5 @@
 :root {
-  --bg-gradient: linear-gradient(116.82deg, #3605D3 0%, #3605D3 0.01%, #6400AE 64.39%);
+  --bg-gradient: linear-gradient(107.56deg, #6400AE 32.44%, #3605D3 100%);
 }
 .page {
   background-size: 100% !important;
@@ -22,8 +22,14 @@
 .page-team {
   background: url('/src/assets/img/bg_team.png'), var(--bg-gradient);
 }
-.page-counter {
-  background: url('/src/assets/img/bg_counter_lines.png') 0 100px, var(--bg-gradient);
+.page-counter, .page-presale, .page-publicsale {
+  .main-content {
+    padding-top: 0;
+  }
+  @media(max-width: 991px){
+    background: var(--bg-gradient);
+    video { display: none; }
+  }
 }
 .page-shared2 {
   background: url('/src/assets/img/bg_shared2.png') 0 100%, var(--bg-gradient);
@@ -32,11 +38,38 @@
   background: url('/src/assets/img/bg_timer.png') 0 100%, var(--bg-gradient);
 }
 .page-airdrop {
-  background: url('/src/assets/img/bg_airdrop.png');
+  //background: url('/src/assets/img/bg_airdrop.png');
 }
 .page-participation {
   background: url('/src/assets/img/bg_cashflow.png') 0 100%;
 }
 .page-extra {
   background: url('/src/assets/img/bg_extra.png'), var(--bg-gradient);
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+  .top {
+    @media (min-width: 991px) {
+      height: 650px;
+      border: 3px solid yellow;
+    }
+  }
+}
+.video-background {
+  @media(max-width: 991px){
+    bottom: 0;
+    width: 200vw;
+    max-width: 200vw;
+    margin-left: -60px;
+  }
+  @media(min-width: 992px){
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+  }
 }

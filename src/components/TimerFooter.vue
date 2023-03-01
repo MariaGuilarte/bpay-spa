@@ -10,7 +10,7 @@
         icon: 'server.svg',
         text: 'Pre Sale Access NFT Mint'
       },
-      description: "Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      description: "To offer a fair token presale, participants must mint a Presale Access NFT and stake it before buying $BPAY. There are 4 tiers and the max buy allowed depends on the tier of the staked NFT.",
       stats: [
         {
           icon: 'avax.svg',
@@ -27,7 +27,7 @@
         icon: 'flag.svg',
         text: 'Pre Sale Starts'
       },
-      description: "Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      description: "To be unlocked",
       stats: [
         {
           icon: 'dollar.svg',
@@ -44,7 +44,7 @@
         icon: 'globe.svg',
         text: 'Public Sale Starts'
       },
-      description: "Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+      description: "To be unlocked",
       stats: [
         {
           icon: 'dollar.svg',
@@ -67,7 +67,7 @@
           v-for="item in items"
           :class="{active: item == currentItem }"
           @click="currentItem = item">
-          <img :src="`./../src/assets/img/${ item.title.icon }`" alt="">
+          <img :src="`/${ item.title.icon }`" alt="">
           <span>
             {{ item.title.text }}
           </span>
@@ -82,7 +82,7 @@
     <div class="col-lg-4">
       <div class="plan-feature-stats" v-if="currentItem">
         <div v-for="stat in currentItem.stats">
-          <img :src="`./../src/assets/img/${ stat.icon }`" alt="">
+          <img :src="`/${ stat.icon }`" alt="">
           <span style="white-space: nowrap;">
             {{ stat.text }}
           </span>

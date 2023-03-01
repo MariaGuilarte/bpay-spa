@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { useNow } from '@vueuse/core';
 
 const { targetDate } = defineProps({
@@ -18,7 +18,7 @@ const { targetDate } = defineProps({
 })
 
 const now = useNow()
-const until = dayjs('2023-02-30')
+const until = dayjs(targetDate)
 const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) : dayjs.duration(until.diff(now.value)))
 </script>
 
@@ -26,13 +26,13 @@ const remaining = computed(() => until.isBefore(now.value) ? dayjs.duration(0) :
   <div class="timer-wrapper">
     <div class="bp-timer mb-5">
       <div class="underlay"></div>
-      <div class="bp-timer-title px-lg-4">
+      <div class="bp-timer-title" style="height: 76px;">
         <span v-html="title">
         </span>
         <img :src="'/' + icon"/>
       </div>
       <div class="bp-timer-date">
-        {{ until.format('DD MMMM YYYY, HH:mm') }} EST
+        {{ until.format('DD MMMM YYYY') }} 12:00 EST
       </div>
       <div class="bp-timer-timer">
         <div>

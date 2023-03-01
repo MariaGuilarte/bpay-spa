@@ -1,4 +1,5 @@
 .main-footer {
+  position: relative;
   padding: 100px 0;
   > div {
     border-right: 1px solid #fff;
@@ -18,6 +19,10 @@
       text-decoration: none;
     }
   }
+}
+
+.hidden-icons-nav {
+  @media(min-width: 991px){ margin-left: 4em; }
 }
 
 .social-nav {
@@ -40,5 +45,14 @@
     &:last-child {
       margin: 0;
     }
+  }
+}
+.footer-center-column {
+  @media(max-width: 991px){
+    padding: 0 100px;
+    text-align: center;
+  }
+  @media(min-width: 992px){
+    padding: 0 110px 0 75px;
   }
 }

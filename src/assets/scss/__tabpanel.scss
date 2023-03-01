@@ -1,0 +1,117 @@
+.tabpanel-tabs {
+  display: flex;
+  margin-top: 3em;
+}
+.tabpanel-tabs .tab {
+  color: rgba(255,255,255,.5);
+  font-size: .9em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: .75em;
+  cursor: pointer;
+  
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  background: #8334C6;
+
+  &:last-child {
+    background: #BC0FFD;
+  }
+  &.active {
+    font-size: 1.15em;
+    color: #fff;
+  }
+  @media(min-width: 991px){
+    font-size: 1.25em;
+    padding: .9em 3em;
+    &.active {
+      font-size: 1.5em;
+    }
+  }
+}
+.tab.active svg {
+  transform: scale(.74);
+}
+.tab:not(.active) svg {
+  transform: scale(.64);
+  opacity: .5;
+}
+.tab svg {
+  margin-right: .75rem;
+}
+
+@media(min-width: 991px){
+  .tab:not(.active) svg {
+    transform: scale(.84);
+    opacity: .5;
+  }
+  .tab svg {
+    margin-right: .75rem;
+  }
+}
+
+.tabpanel {
+  font-weight: 700;
+  color: #fff;
+}
+.tabpanel-body {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1.25em;
+  background-color: #8334C6;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+}
+.tabpanel-col {
+  flex: 1 0;
+  padding: 1.25em;
+}
+.tabpanel-label {
+  margin-bottom: .5rem;
+}
+.tabpanel-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.tabpanel-showcase {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  border-top-right-radius: 40px;
+  background: #6400AE;
+
+  .title {
+    font-size: 2.25em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+  }
+  .subtitle {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .description {
+    font-size: 1em;
+    font-weight: 300;
+  }
+}
+
+.bg-purple-2 {
+  background: #BC0FFD !important;
+}
+
+@media(min-width: 991px){
+  .tabpanel-body {
+    flex-flow: row nowrap;
+  }
+}

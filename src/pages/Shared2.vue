@@ -1,17 +1,13 @@
 <template>
-  <div class="main-content position-relative" style="padding-bottom: 150px;">
+  <div class="main-content position-relative">
 
-    <div class="shared2-animated-graph d-none d-lg-block">
-      <img src="./../assets/img/cards.png" class="slideOutTop slideInLeft" />
+    <div class="shared2-animated-graph">
+      <img src="./../assets/img/cards.png" class="slideOutTop fadeOut slideInLeft" />
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-7 offset-lg-1 slideOutTop shared-blockpay-logo">
-          <img src="./../assets/img/blockpay_logo_vector_2.png" alt="">
-        </div>
-
-        <div class="shared2-textblock col-lg-6 offset-lg-1 slideInRight fadeOut">
+        <div class="col-lg-6 offset-lg-1 shared2-textblock slideInRight fadeOut">
           <h1 class="bp-page-title mt-0" style="margin-bottom: 20px;">
             Shared Revenue
           </h1>
@@ -40,20 +36,7 @@
 <style lang="scss">
 .shared2-animated-graph {
   text-align: center;
-  img {
-    width: 50%;
-  }
-  
-  @media(min-width: 991px){
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    img {
-      width: initial;
-      margin-top: 50px;
-    }
-  }
+  img { width: 90%; margin: 50px 0; }
 }
 
 .shared-blockpay-logo {
@@ -62,12 +45,22 @@
 }
 
 @media(min-width: 991px) {
+  .page-shared2 .bp-page-subtitle {
+    font-size: 2em !important;
+  }
+  .shared2-animated-graph {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    img { width: initial; margin: 180px -50px 0 0;}
+  }
   .shared-blockpay-logo {
     padding: 96px 0 0 45px;
     display: block;
   }
   .shared2-textblock {
-    padding-left: 45px;
+    padding-top: 170px;
   }
 }
 
@@ -87,7 +80,7 @@
 .shared-gradient-cube {
   position: absolute;
   left: 10px;
-  top: 570px;
+  top: 510px;
 }
 
 .shared-outlined-cube {

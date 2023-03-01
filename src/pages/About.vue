@@ -19,13 +19,6 @@
           Everything you need, in one place.
         </p>
       </div>
-      <div class="col-lg-8 mx-auto text-center fadeOutInstant px-lg-70">
-        <p class="mt-0">
-          Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-          laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        </p>
-      </div>
     </div>
     </div>
     <div class="about-underlay" style="opacity: 1;">
@@ -38,6 +31,17 @@
 </template>
 
 <style lang="scss">
+.page-about .main-content {
+  @media(max-width: 991px){
+    padding-top: 160px;
+    .about-underlay {
+      top: 160px;
+    }
+  }
+  @media(min-width: 992px){
+    padding: 0;
+  }
+}
 .about-underlay {
   position: absolute;
   top: 0;
@@ -52,7 +56,7 @@
 }
 .about-pos {
   max-width: 200px;
-  display: none !important;
+  display: none;
   margin: 0 auto;
 }
 .about-gradient-cube {
@@ -72,7 +76,7 @@
 }
 .v-leave-active {
   .fadeOutInstant {
-    display: none;
+    display: none !important;
   }
 }
 
