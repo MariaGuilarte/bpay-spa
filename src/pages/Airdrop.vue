@@ -1,15 +1,15 @@
 <template>
-  <div class="container main-content position-relative">
-    <div class="row main-content align-items-center" id="airdrop">
-      <video
-        autoplay
-        muted
-        loop
-        class="video-background">
-        <source src="./../assets/video/airdrop.mp4" type="video/mp4">
-      </video>
-
-      <div class="col-lg-5 ps-xxl-5 offset-lg-5 text-center text-lg-right slideInLeft position-relative">
+  <div class="container main-content">
+    <video
+      autoplay
+      muted
+      loop
+      class="video-background"
+      style="top: 0">
+      <source src="./../assets/video/airdrop.mp4" type="video/mp4">
+    </video>
+    <div class="row main-content align-items-lg-center" id="airdrop">
+      <div class="col-lg-5 ps-xxl-5 offset-lg-6 text-center text-lg-right slideInLeft position-relative">
         <h1 class="bp-page-title">Positive Cash Flow</h1>
         <p class="bp-page-subtitle">
           From non-crypto financial services used every day.

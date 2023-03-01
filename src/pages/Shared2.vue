@@ -36,7 +36,7 @@
 <style lang="scss">
 .shared2-animated-graph {
   text-align: center;
-  img { width: 50%; }
+  img { width: 90%; margin: 50px 0; }
 }
 
 .shared-blockpay-logo {

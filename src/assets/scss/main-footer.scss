@@ -21,6 +21,10 @@
   }
 }
 
+.hidden-icons-nav {
+  @media(min-width: 991px){ margin-left: 4em; }
+}
+
 .social-nav {
   list-style-type: none;
   padding: 0;

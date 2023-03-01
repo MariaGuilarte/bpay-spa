@@ -33,6 +33,11 @@
 </template>
 
 <style lang="scss">
+@media(max-width: 991px){
+  .page-shared .video-background {
+    margin-left: -100vw;
+  }
+}
 @media(min-width: 991px) {
   .shared-vector-container {
     padding-top: 55px;

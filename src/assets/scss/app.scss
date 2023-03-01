@@ -71,6 +71,9 @@ p {
 .text-nowrap {
   white-space: nowrap;
 }
+.font-weight-normal {
+  font-weight: 400;
+}
 
 @media (min-width: 992px) {
   .text-lg-right {

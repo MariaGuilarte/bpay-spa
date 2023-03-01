@@ -1,5 +1,5 @@
 <template>
-  <div class="container main-content position-relative">
+  <div class="container main-content">
 
     <video
       autoplay

@@ -38,7 +38,7 @@
   background: url('/src/assets/img/bg_timer.png') 0 100%, var(--bg-gradient);
 }
 .page-airdrop {
-  background: url('/src/assets/img/bg_airdrop.png');
+  //background: url('/src/assets/img/bg_airdrop.png');
 }
 .page-participation {
   background: url('/src/assets/img/bg_cashflow.png') 0 100%;
@@ -50,6 +50,7 @@
 .video-container {
   position: relative;
   padding-bottom: 0 !important;
+  overflow: hidden;
   .top {
     @media (min-width: 991px) {
       height: 650px;
@@ -58,15 +59,17 @@
   }
 }
 .video-background {
-  top: -100px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 200vw;
-  max-width: 200vw;
-  margin-left: -60px;
-  @media(min-width: 991px){
+  @media(max-width: 991px){
+    bottom: 0;
+    width: 200vw;
+    max-width: 200vw;
+    margin-left: -60px;
+  }
+  @media(min-width: 992px){
+    top: 0;
+    left: 0;
+    right: 0;
     position: absolute;
-    width: 100vw;
+    width: 100%;
   }
 }

@@ -6,8 +6,8 @@
           <h1 class="bp-page-title">
             Fair Participation
           </h1>
-          <p class="bp-page-subtitle">
-            2,000 NFTs granting access to the Blockpay token presale, with $BPAY max bid depending on 4 different tiers.
+          <p class="bp-page-subtitle font-weight-normal">
+            2,000 NFTs granting access to the Blockpay token presale, <b>with $BPAY max bid depending on 4 different tiers</b>.
           </p>
         </div>
       </div>

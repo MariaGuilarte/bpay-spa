@@ -32,8 +32,13 @@
 
 <style lang="scss">
 .page-about .main-content {
-  padding-top: 60px;
-  @media(min-width: 991px){
+  @media(max-width: 991px){
+    padding-top: 160px;
+    .about-underlay {
+      top: 160px;
+    }
+  }
+  @media(min-width: 992px){
     padding: 0;
   }
 }

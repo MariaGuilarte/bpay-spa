@@ -9,7 +9,8 @@ const timers = [
     statLeft: '2.5 AVAX',
     statRight: 'Max: 5',
     icon: 'server.svg',
-    statLeftIcon: 'avax.svg'
+    statLeftIcon: 'avax.svg',
+    ctaText: 'Presale Access'
   },
   {
     targetDate: '2023-03-01',
@@ -17,7 +18,8 @@ const timers = [
     statLeft: '0.20 USD',
     statRight: 'Max: NFT Rarity',
     icon: 'flag.svg',
-    statLeftIcon: 'dollar.svg'
+    statLeftIcon: 'dollar.svg',
+    ctaText: 'Presale'
   },
   {
     targetDate: '2023-04-03',
@@ -25,7 +27,8 @@ const timers = [
     statLeft: '0.30',
     statRight: 'Max: Unlimited',
     icon: 'globe.svg',
-    statLeftIcon: 'dollar.svg'
+    statLeftIcon: 'dollar.svg',
+    ctaText: 'Public Sale'
   }
 ]
 </script>
@@ -45,7 +48,9 @@ const timers = [
               :statLeftIcon="timer.statLeftIcon">
             </Timer>
             <div class="cta-container">
-              <a href="#" class="btn-cta cristal">Connect Wallet</a>
+              <a href="#" class="btn-cta cristal">
+                {{ timer.ctaText }}
+              </a>
             </div>
           </div>
         </div>

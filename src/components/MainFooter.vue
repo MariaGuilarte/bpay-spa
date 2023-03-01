@@ -5,18 +5,22 @@
         <div class="col-lg-2 d-flex align-items-center justify-content-center">
           <img src="./../assets/img/logo.png" style="max-width: 200px; width: 100%;" />
         </div>
-        <div class="col-lg-3 d-flex justify-content-center">
-          <ul class="main-footer-nav">
+        <div class="col-lg-3 d-flex d-lg-block justify-content-center">
+          <ul class="main-footer-nav footer-nav hidden-icons-nav">
             <li>
+              <img src="./../assets/img/server.svg"/>
               <router-link to="index">Home</router-link>
             </li>
             <li>
+              <img src="./../assets/img/flag.svg"/>
               <router-link to="counter">Access NFT</router-link>
             </li>
             <li>
+              <img src="./../assets/img/globe.svg"/>
               <router-link to="presale">Pre Sale</router-link>
             </li>
             <li>
+              <img src="./../assets/img/blockpay.svg"/>
               <router-link to="publicsale">Public Sale</router-link>
             </li>
           </ul>
