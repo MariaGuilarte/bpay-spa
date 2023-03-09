@@ -34,7 +34,7 @@ const timers = [
 </script>
 
 <template>
-  <div class="main-content" style="padding: 50px 0 0 0;">
+  <div class="main-content" style="padding: 150px 0 0 0;">
     <div class="container">
       <div class="col-lg-10 p-0 mx-auto slideOutTop">
         <div class="row slideInTop">

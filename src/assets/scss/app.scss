@@ -1,6 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@media (min-width: 992px) {
+  .text-block {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
 @import "colors.scss";
 @import "headings.scss";
 @import "buttons.scss";
+@import "layout.scss";
 @import "navbar.scss";
 @import "timer.scss";
 @import "footer-nav.scss";
@@ -10,6 +24,7 @@
 @import "animations.scss";
 @import "tabpanel.scss";
 @import "tabpanel-animations.scss";
+@import "background-video.scss";
 @import "backgrounds.scss";
 
 body {
@@ -17,50 +32,14 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
-  &:has(.v-leave-active){
+  &:has(.v-leave-active) {
     overflow: hidden;
   }
-}
-#app {
-  height: 100vh;
-  overflow: hidden;
 }
 img {
   pointer-events: none;
 }
-.page {
-  box-sizing: border-box;
-  height: 100%;
-  padding-top: 72px;
-  overflow: hidden scroll;
-  @media (min-width: 991px) {
-    padding-top: 104px;
-  }
-}
-.main-content {
-  min-height: calc(100vh - 36px);
-  box-sizing: border-box;
-  padding-bottom: 50px;
-  @media (min-width: 991px) {
-    min-height: calc(100vh - 36px);
-    padding-bottom: 100px;
-  }
-}
 
-.container {
-  box-sizing: border-box;
-  @media (max-width: 991px) {
-    --bs-gutter-x: 2rem;
-  }
-  @media (min-width: 576px) {
-    box-sizing: border-box;
-    max-width: 100%;
-    --bs-gutter-x: 2rem;
-  }
-}
-.row > * {
-  box-sizing: border-box;
-}
 p {
   font-size: 1em;
   line-height: 1.5em;
@@ -85,21 +64,15 @@ p {
   .text-lg-left {
     text-align: left;
   }
+  .py-lg-100 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 }
 
 .position-relative {
   position: relative;
 }
-.fog-sight {
-  background: linear-gradient(180deg, #ffffff 0%, rgba(239, 239, 239, 0.584328) 10%, rgba(217, 217, 217, 0) 26%),
-    linear-gradient(to top, #ffffff 0%, rgba(239, 239, 239, 0.584328) 10%, rgba(217, 217, 217, 0) 26%),
-    linear-gradient(to left, #ffffff 0%, rgba(239, 239, 239, 0.584328) 47.69%, rgba(217, 217, 217, 0) 54.89%);
-}
-.py-100 {
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
 @media (min-width: 1400px) {
   .container {
     max-width: 1335px;

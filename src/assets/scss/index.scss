@@ -3,10 +3,6 @@
     margin-left: -100vw;
   }
 }
-.page-index .main-content {
-  padding-bottom: 100px;
-}
-
 .index-text-block {
   animation: fadeIn 1s forwards;
   animation-delay: 2.15s;
@@ -15,15 +11,6 @@
 
 .contract-link {
   font-size: .8em;
-}
-
-.video-background {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-}
-.v-leave-active .video-background {
-  opacity: 0;
 }
 
 @media(min-width: 992px){

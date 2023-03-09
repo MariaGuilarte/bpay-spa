@@ -1,13 +1,9 @@
 .main-content.v-enter-active,
 .main-content.v-leave-active {
   position: fixed;
-  top: 72px;
   left: 0;
   right: 0;
   transition: opacity 1s ease-out;
-  @media(min-width: 991px){
-    top: 100px;
-  }
 }
 
 .v-enter-active {

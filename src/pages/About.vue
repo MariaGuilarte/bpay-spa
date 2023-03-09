@@ -34,17 +34,18 @@
 .page-about .main-content {
   @media(max-width: 991px){
     padding-top: 160px;
+    height: 101vh;
     .about-underlay {
       top: 160px;
     }
   }
   @media(min-width: 992px){
-    padding: 0;
+    padding: 150px;
   }
 }
 .about-underlay {
   position: absolute;
-  top: 0;
+  top: 150px;
   left: 0;
   right: 0;
   height: 100%;
